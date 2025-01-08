@@ -4,7 +4,8 @@ __pycache__/
 replix.nix
 *.py[cod]
 *$py.class
-
+poetry.lock
+pyproject.toml
 # C extensions
 *.so
 
