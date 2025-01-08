@@ -1,6 +1,7 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
 .replit
+replix.nix
 *.py[cod]
 *$py.class
 
