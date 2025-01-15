@@ -1,13 +1,19 @@
 {% extends 'productivityHub/base.html' %}
 
-{% block title %} Task {% endblock %}
+{% block title %}Add Task{% endblock %}
 
 {% block content %}
-<h2> Add Tasks </h2>
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Add Task</button>
-</form>
-<a href=" {% url 'task-list' %}">Back to Task</a>
+<div>
+  
+  <form method="post" class="add-task-form">
+    <h2>Add New Task</h2>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <br>
+    <button type="submit">Add Task</button>
+    <br>
+    <a href="{% url 'task-list' %}">Back to Task List</a>
+  </form>
+  
+</div>
 {% endblock %}

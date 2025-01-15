@@ -16,8 +16,8 @@ class Task(models.Model):
   
   user = models.ForeignKey(User, on_delete=models.CASCADE) #each task is linked to a user
   title = models.CharField(max_length=255)
-  description = models.TextField(blank=True, null=True)
-  deadline = models.DateTimeField(blank=True, null=True)
+  description = models.TextField()
+  deadline = models.DateTimeField()
   status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='PENDING')
   created_at = models.DateTimeField(auto_now_add=True)
 

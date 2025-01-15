@@ -4,40 +4,39 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}P.H. App{% endblock %}</title>
+
+    <!-- Bulma CSS for styling -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-extensions@6.2.7/bulma-checkradio/css/bulma-checkradio.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-extensions@6.2.7/bulma-switch/css/bulma-switch.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-extensions@6.2.7/bulma-slider/css/bulma-slider.min.css">
+    
+    <!-- Load static files -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'productivityHub/css/styles.css' %}">
   </head>
-  <body>
-    <header class="navbar">
-      <div class="navbar-brand">
-        <h1 class="navbar-item">P.H. App</h1>
-      </div>
-      <nav class="navbar-menu">
-        <ul class="navbar-end">
-          {% if request.user.is_authenticated %}
-            <li class="navbar-item">Welcome, {{ request.user.username }}!</li>
-            <li class="navbar-item">
-              <form method="post" action="{% url 'logout' %}">
-                {% csrf_token %}
-                <button type="submit" class="button is-light">Logout</button>
-              </form>
-            </li>
-          {% else %}
-            <li class="navbar-item"><a href="{% url 'login' %}" class="button is-light">Login</a></li>
-            <li class="navbar-item"><a href="{% url 'signup' %}" class="button is-primary">Sign Up</a></li>
-          {% endif %}
-        </ul>
-      </nav>
-    </header>
+  <body style="background-image: url('{% static "productivityHub/images/starry_night.webp" %}'); background-size: cover; background-attachment: fixed;">
+
+    <!-- Main content section -->
     <main class="section">
       {% block content %}
-      <!-- Page-specific content goes here -->
+      <!-- Page-specific content will be inserted here -->
       {% endblock %}
     </main>
+
+    <!-- Footer with authentication check -->
     <footer class="footer has-text-centered">
-      <p>&copy; 2025 P.H. App</p>
+      <p class="glowing-text">&copy; 2025 P.H. App</p>
+
+      {% if request.user.is_authenticated %}
+        <p>Welcome, {{ request.user.username }}!</p>
+        <form method="post" action="{% url 'logout' %}">
+          {% csrf_token %}
+          <button type="submit" class="button is-light">Logout</button>
+        </form>
+      {% else %}
+        <a href="{% url 'login' %}" class="button is-light">Login</a>
+        <a href="{% url 'signup' %}" class="button is-primary">Sign Up</a>
+      {% endif %}
     </footer>
+
+    {% block extra_scripts %}{% endblock %}
   </body>
 </html>

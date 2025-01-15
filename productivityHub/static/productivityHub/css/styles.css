@@ -1,0 +1,336 @@
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f6f9;
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+  color: #dbdee1;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* General Body Styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  
+}
+
+/* base template */
+.navbar {
+  background-color: transparent;
+}
+
+/* Login Container */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Login Box */
+.login-box {
+  max-width: 400px;
+  width: 100%;
+  background: #3498db; /* Semi-transparent white */
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  backdrop-filter: blur(5px); /* Glassmorphism effect */
+}
+
+.title {
+  font-weight: bold;
+  color: #f7f7f8; /* Dark text color */
+}
+
+.subtitle {
+  color: #f0f2f5;
+  margin-bottom: 1.5rem;
+}
+
+button {
+  font-weight: bold;
+}
+
+a {
+  color: #f1e4e4; /* Bright blue for links */
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Form Fields */
+.field {
+  margin-bottom: 2rem; /* Increased space between fields */
+}
+
+.input {
+  border: none; /* Remove default border */
+  border-bottom: 2px solid #ddd; /* Add a straight bottom border */
+  padding: 0.75rem;
+  font-size: 1rem;
+  background: transparent; /* Make the background transparent */
+  color: #f7f7f8; /* Text color to ensure readability */
+}
+
+.input::placeholder {
+  color: #bbb; /* Lighter placeholder text */
+  opacity: 1; /* Ensure the placeholder text is visible */
+}
+
+/* Make sure placeholder disappears when clicked */
+.input:focus::placeholder {
+  opacity: 0; /* Make placeholder disappear on focus */
+}
+
+/* Optional: Adjust focus style for better accessibility */
+.input:focus {
+  border-bottom-color: #3498db; /* Change bottom border color on focus */
+  outline: none;
+}
+.text{
+  color: white;
+}
+
+/* Task List Styling */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+li.pending {
+  background-color: #fff3cd;
+  border-left: 5px solid #f39c12;
+}
+
+li.completed {
+  background-color: #d4edda;
+  border-left: 5px solid #28a745;
+  text-decoration: line-through;
+}
+
+li a {
+  background-color: #33a7f0;
+  color: white;
+  padding: 0.4rem 1rem;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #2980b9;
+}
+
+/*Add Task Form Styling */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form input, form select, form textarea {
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+form input[type="text"], form textarea {
+  background-color: #f9f9f9;
+  font-size: 1rem;
+  color: #333;
+}
+
+form button {
+  align-self: flex-start;
+}
+
+/* Container for Task-Related Pages */
+.task-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.9); /* Slight transparency */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.task-container h2 {
+  margin-bottom: 1rem;
+  color: #2c3e50; /* Darker text color */
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.task-container ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.task-container li {
+  margin: 0.5rem 0;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f7f7f7;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #333;
+}
+
+.task-container li.pending {
+  border-left: 5px solid #f39c12; /* Orange for pending tasks */
+}
+
+.task-container li.completed {
+  border-left: 5px solid #27ae60; /* Green for completed tasks */
+  text-decoration: line-through; /* Strike-through for completed tasks */
+}
+
+.task-container a {
+  color: #edf0f2; /* Bright blue links */
+  text-decoration: none;
+}
+
+.task-container a:hover {
+  text-decoration: underline;
+}
+
+.taskadd {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #3498db; /* Bright blue background */
+  color: #fff; /* White text */
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.taskadd:hover {
+  background-color: #2980b9; /* Darker blue on hover */
+}
+
+
+button {
+  background-color: #3498db;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+a {
+  display: inline-block;
+  margin-top: 1rem;
+  color: #64aed3;
+}
+
+a:hover {
+  color: #3498db;
+}
+
+/* Responsive form container */
+.add-task-form {
+  width: 90%; /* Use 90% of the viewport width */
+  max-width: 400px; /* Maximum width on larger screens */
+  margin: 0 auto; /* Center the form horizontally */
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.9); /* Light background */
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box; /* Ensures padding doesn't add to width */
+  text-align: center;
+}
+
+/* Style the input fields */
+.add-task-form .input {
+  width: 100%; /* Full width of the form container */
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+/* Style the button */
+.add-task-form .button {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #3273dc; /* Bulma's primary color */
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.add-task-form .button:hover {
+  background-color: #275cbb; /* Darker shade for hover */
+}
+
+.add-task-form .h2 {
+  margin-bottom: 1rem;
+  color: #2c3e50; /* Darker text color */
+  font-size: 2rem;
+  font-weight: bold;
+}
+/* Optional: Add specific styles for labels */
+.add-task-form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 600px) {
+  .add-task-form {
+    padding: 1.5rem; /* Adjust padding */
+  }
+
+  .add-task-form .input {
+    font-size: 0.9rem; /* Slightly smaller input text */
+  }
+
+  .add-task-form .button {
+    font-size: 0.9rem; /* Slightly smaller button text */
+  }
+}
