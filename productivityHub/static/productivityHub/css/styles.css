@@ -25,7 +25,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Arial', sans-serif;
-  
+
 }
 
 /* base template */
@@ -335,67 +335,81 @@ a:hover {
   }
 }
 
-/* Modal styles */
+/* Modal Styling */
 .modal {
   display: none;
   position: fixed;
-  top: 0;
+  z-index: 1000;
   left: 0;
+  top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8); /* Dark transparent background */
+  font-family: 'Poppins', sans-serif;
 }
 
 .modal-content {
-  background: #fff;
+  background: linear-gradient(145deg, #1c1e26, #2b2d38); /* Solo Leveling-like dark theme */
+  color: #f2f2f2;
+  border: 2px solid #4adede;
+  border-radius: 15px;
+  margin: 10% auto;
   padding: 20px;
-  border-radius: 10px;
-  width: 400px;
-  max-width: 90%;
+  width: 40%;
   text-align: center;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  animation: fadeIn 0.5s ease-out;
 }
 
-.modal-title {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 15px;
-  color: #34495e; /* Dark gray or a primary color */
+.modal h2 {
+  font-size: 2em;
+  color: #4adede; /* Cyan highlight */
+  margin-bottom: 10px;
 }
 
-.modal-description {
-  font-size: 16px;
-  margin-bottom: 20px;
-  color: #555; /* Light gray text */
+.modal p {
+  font-size: 1.2em;
+  margin: 10px 0;
 }
 
-.modal-deadline {
-  font-size: 14px;
-  margin-bottom: 20px;
-  color: #e74c3c; /* Red color for emphasis */
-}
-
-.modal-actions {
-  display: flex;
-  justify-content: space-around;
-}
-
-.modal-btn {
-  background-color: #3498db; /* Blue button */
-  color: white;
+.modal a.button {
+  display: inline-block;
   padding: 10px 20px;
-  border: none;
+  background: #4adede;
+  color: #0b1e2d;
+  text-decoration: none;
   border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s;
+  font-weight: bold;
+  margin-top: 15px;
+  transition: background 0.3s ease;
 }
 
-.modal-btn:hover {
-  background-color: #2980b9; /* Darker blue on hover */
+.modal a.button:hover {
+  background: #2ebaba;
 }
 
+/* Animation */
+.modal-show {
+  animation: slideIn 0.4s ease-out forwards;
+}
 
+@keyframes slideIn {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

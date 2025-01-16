@@ -1,25 +1,21 @@
 from django.contrib.auth.models import User
 from django.db import models
 
-# Create your models here.
-
-STATUS_CHOICES = [
-  ('PENDING', 'pending'),
-  ('COMPLETED', 'completed'),
-]
+  # Define the status choices globally for reuse
+  
 
 class Task(models.Model):
-  STATUS_CHOICES = [
-    ('PENDING', 'pending'),
-    ('COMPLETED', 'completed'),
-  ]
-  
-  user = models.ForeignKey(User, on_delete=models.CASCADE) #each task is linked to a user
-  title = models.CharField(max_length=255)
-  description = models.TextField()
-  deadline = models.DateTimeField()
-  status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='PENDING')
-  created_at = models.DateTimeField(auto_now_add=True)
+    STATUS_CHOICES = [
+        ('PENDING', 'Pending'),
+        ('COMPLETED', 'Completed'),
+    ]
+      # Each task is linked to a user
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='tasks')
+    title = models.CharField(max_length=255)
+    description = models.TextField(null = True, blank = True)
+    deadline = models.DateTimeField(null = True, blank = True)
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='PENDING')
+    created_at = models.DateTimeField(auto_now_add=True)
 
-def __str__(self):
-  return self.title
+    def __str__(self):
+      return self.title
