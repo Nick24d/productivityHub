@@ -334,3 +334,68 @@ a:hover {
     font-size: 0.9rem; /* Slightly smaller button text */
   }
 }
+
+/* Modal styles */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 400px;
+  max-width: 90%;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.modal-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #34495e; /* Dark gray or a primary color */
+}
+
+.modal-description {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: #555; /* Light gray text */
+}
+
+.modal-deadline {
+  font-size: 14px;
+  margin-bottom: 20px;
+  color: #e74c3c; /* Red color for emphasis */
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-around;
+}
+
+.modal-btn {
+  background-color: #3498db; /* Blue button */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.modal-btn:hover {
+  background-color: #2980b9; /* Darker blue on hover */
+}
+
+

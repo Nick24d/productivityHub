@@ -12,11 +12,28 @@
         <span>{{ task.title }} - {{ task.status }}</span>
         
         {% if task.status == 'PENDING' %}
-          <a href="{% url 'complete_task' task.id %}">Mark as Completed</a>
+          <a href="javascript:void(0)" class="view-task" data-task-id="{{ task.id }}" data-title="{{ task.title }}" data-description="{{ task.description }}" data-deadline="{{ task.deadline }}">View Task</a>
         {% endif %}
       </li>
     {% endfor %}
   </ul>
-  <a class="taskadd", href="{% url 'add_task' %}">Add Task</a>
+  <a class="taskadd" href="{% url 'add_task' %}">Add Task</a>
 </div>
+
+<!-- Modal for task details -->
+<div id="taskModal" class="modal">
+  <div class="modal-content">
+    <h2 id="taskTitle">Task Title</h2>
+    <p id="taskDescription">Task Description</p>
+    <p id="taskDeadline">Deadline: </p>
+    <button id="closeModal" class="button is-light">Close</button>
+    <a href="#" id="markComplete" class="button is-primary">Mark as Completed</a>
+  </div>
+</div>
+
+{% endblock %}
+<!-- Language: javascript -->
+{% block extra_scripts %}
+{% load static %}
+<script src="{% static 'productivityHub/js/modal.js' %}"></script>
 {% endblock %}
