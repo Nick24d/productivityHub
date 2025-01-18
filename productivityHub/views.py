@@ -1,9 +1,9 @@
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
-from django.shortcuts import redirect, render, get_object_or_404
-# from django.views.decorators.csrf import csrf_protect
+from django.shortcuts import get_object_or_404, redirect, render
 
+# from django.views.decorators.csrf import csrf_protect
 from .forms import TaskForm
 from .models import Task
 
@@ -28,13 +28,11 @@ def add_task(request):
     form = TaskForm()
   return render(request, 'productivityHub/add_task.html', {'form': form})
 
-
-@login_required
 def complete_task(request, task_id):
-  task = Task.objects.get(id=task_id, user=request.user)
-  task.status = 'COMPLETED'
-  task.save()
-  return redirect('task-list')
+    task = get_object_or_404(Task, id=task_id, user=request.user)
+    task.status = 'COMPLETED'  # Ensure status is updated
+    task.save()
+    return redirect('task-list')  # Redirect back to task list after completion
 
 
 # sign up view
@@ -66,8 +64,8 @@ def login_view(request):
     else:
       return render(request, 'productivityHub/login.html', {
           'form': form,
-           'error': 'Invalid username or password'
-        })
+          'error': 'Invalid username or password'
+      })
   else:
     form = AuthenticationForm()
   return render(request, 'productivityHub/login.html', {'form': form})
@@ -78,7 +76,6 @@ def login_view(request):
 def logout_view(request):
   logout(request)
   return redirect('login')
-
 
 
 # Create your views here.

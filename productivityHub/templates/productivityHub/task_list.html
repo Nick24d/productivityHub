@@ -6,17 +6,33 @@
 <div class="task-container">
   <h2>QUEST LIST</h2>
   <h2>Welcome, {{ request.user.username }}</h2>
+
+  <!-- Pending Tasks Section -->
+  <h3>Pending Tasks</h3>
   <ul>
     {% for task in tasks %}
-      <li class="{% if task.status == 'PENDING' %}pending{% else %}completed{% endif %}">
-        <span>{{ task.title }} - {{ task.status }}</span>
-        
-        {% if task.status == 'PENDING' %}
+      {% if task.status == 'PENDING' %}
+        <li class="pending">
+          <span>{{ task.title }} - {{ task.status }}</span>
+          
           <a href="javascript:void(0)" class="view-task" data-task-id="{{ task.id }}" data-title="{{ task.title }}" data-description="{{ task.description }}" data-deadline="{{ task.deadline }}">View Task</a>
-        {% endif %}
-      </li>
+        </li>
+      {% endif %}
     {% endfor %}
   </ul>
+
+  <!-- Completed Tasks Section -->
+  <h3>Completed Tasks</h3>
+  <ul>
+    {% for task in tasks %}
+      {% if task.status == 'COMPLETED' %}
+        <li class="completed">
+          <span>{{ task.title }} - {{ task.status }}</span>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+
   <a class="taskadd" href="{% url 'add_task' %}">Add Task</a>
 </div>
 
@@ -26,13 +42,13 @@
     <h2 id="taskTitle">Task Title</h2>
     <p id="taskDescription">Task Description</p>
     <p id="taskDeadline">Deadline: </p>
-    <button id="closeModal" class="button is-light">Close</button>
+    <!-- Link dynamically set to the 'complete_task' view with the task ID -->
     <a href="#" id="markComplete" class="button is-primary">Mark as Completed</a>
   </div>
 </div>
 
 {% endblock %}
-<!-- Language: javascript -->
+
 {% block extra_scripts %}
 {% load static %}
 <script src="{% static 'productivityHub/js/modal.js' %}"></script>
