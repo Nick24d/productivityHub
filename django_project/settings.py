@@ -26,7 +26,7 @@ SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "fallback-secret-key")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = [".replit.dev", ".replit.app", "https://productivityhub-nc.onrender.com"]
+ALLOWED_HOSTS = [".replit.dev", ".replit.app", "productivityhub-nc.onrender.com"]
 CSRF_TRUSTED_ORIGINS = ["https://*.replit.dev", "https://*.replit.app",
 "https://productivityhub-nc.onrender.com"]
 
